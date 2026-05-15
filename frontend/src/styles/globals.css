@@ -1,0 +1,31 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Jost', sans-serif;
+
+  --color-forest: #5e654a;
+  --color-sage: #8a926e;
+  --color-gold: #f4c43a;
+  --color-cream: #e9e1d1;
+  --color-offwhite: #f7f4ec;
+  --color-teal: #2d5f5e;
+  --color-charcoal: #2c2c2c;
+  --color-muted: #7a7a6a;
+
+  --spacing-container-max: 1200px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  background-color: var(--color-offwhite);
+  color: var(--color-charcoal);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@import './animations.css';

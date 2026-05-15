@@ -1,0 +1,12 @@
+{
+  "name": "vela-candela",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev:frontend": "npm run dev --prefix frontend",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:all": "npm run dev:frontend & npm run dev:backend",
+    "build": "npm run build --prefix frontend",
+    "install:all": "npm install --prefix frontend && npm install --prefix backend"
+  }
+}
