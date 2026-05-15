@@ -33,3 +33,21 @@ npm run dev
 |------|--------|
 | Frontend | React 19, Vite, TypeScript, Tailwind v4, React Router, Zustand, Framer Motion |
 | Backend | Node.js, Express, Prisma, JWT, Stripe (priprema) |
+
+## Deploy na Render (statička stranica)
+
+1. Na [Render](https://render.com) → **New** → **Static Site**
+2. Povežite repozitorij: `braneZd1950/velacandela`
+3. Postavke:
+
+| Polje | Vrijednost |
+|-------|------------|
+| **Root Directory** | `frontend` |
+| **Build Command** | `npm ci && npm run build` |
+| **Publish Directory** | `dist` |
+
+4. **Ne koristite Yarn** — uklonite `yarn install; yarn build` ako je ručno upisano.
+5. **Environment** → `NODE_VERSION` = `22.14.0` (opcionalno)
+6. Za React Router: uključene su rewrite pravila u `render.yaml` i `frontend/public/_redirects`
+
+Alternativa: **New** → **Blueprint** → odaberite repo (koristi `render.yaml` u korijenu).
