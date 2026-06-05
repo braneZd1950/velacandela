@@ -2,11 +2,18 @@ import ProductCard from '@components/product/ProductCard'
 import ProductGrid from '@components/product/ProductGrid'
 import { getProductName } from '@/data/products'
 import { useProducts } from '@hooks/useProducts'
+import { usePageMeta } from '@hooks/usePageMeta'
 import { useTranslation } from '@hooks/useTranslation'
 
 export default function Products() {
   const { products } = useProducts()
   const { t, locale } = useTranslation()
+
+  usePageMeta({
+    title: t.meta.products.title,
+    description: t.meta.products.description,
+    path: '/products',
+  })
 
   return (
     <div className="mx-auto max-w-screen-xl px-6 py-16">

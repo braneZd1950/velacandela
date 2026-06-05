@@ -1,8 +1,15 @@
 import { images } from '@/assets/images'
+import { usePageMeta } from '@hooks/usePageMeta'
 import { useTranslation } from '@hooks/useTranslation'
 
 export default function About() {
   const { t } = useTranslation()
+
+  usePageMeta({
+    title: t.meta.about.title,
+    description: t.meta.about.description,
+    path: '/about',
+  })
 
   return (
     <div className="mx-auto max-w-screen-xl px-6 py-16">
@@ -16,7 +23,8 @@ export default function About() {
         <div className="flex justify-center">
           <img
             src={images.brand}
-            alt="Vela Candela"
+            alt={t.home.heroAlt}
+            loading="lazy"
             className="max-h-[480px] w-full rounded-sm object-cover shadow-md"
           />
         </div>

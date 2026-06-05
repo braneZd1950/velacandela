@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useTranslation } from '@hooks/useTranslation'
-import { formatPrice } from '@utils/formatPrice'
+import { formatProductPrice } from '@utils/formatPrice'
 
 type ProductCardData = {
   id: string
   name: string
-  price: number
+  price: number | null
   image: string
   slug?: string
 }
@@ -26,6 +26,7 @@ export default function ProductCard({ product }: Props) {
             <img
               src={product.image}
               alt={product.name}
+              loading="lazy"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </Link>
@@ -33,6 +34,7 @@ export default function ProductCard({ product }: Props) {
           <img
             src={product.image}
             alt={product.name}
+            loading="lazy"
             className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
         )}
@@ -54,7 +56,7 @@ export default function ProductCard({ product }: Props) {
           product.name
         )}
       </h3>
-      <p className="mt-1 font-display text-lg text-teal">{formatPrice(product.price, locale)}</p>
+      <p className="mt-1 font-display text-lg text-teal">{formatProductPrice(product.price, locale)}</p>
     </article>
   )
 }

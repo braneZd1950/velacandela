@@ -2,10 +2,17 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import ScrollingImageShowcase from '@components/gallery/ScrollingImageShowcase'
 import BrandLogo from '@components/ui/BrandLogo'
+import { usePageMeta } from '@hooks/usePageMeta'
 import { useTranslation } from '@hooks/useTranslation'
 
 export default function Home() {
   const { t } = useTranslation()
+
+  usePageMeta({
+    title: t.meta.home.title,
+    description: t.meta.home.description,
+    path: '/',
+  })
 
   return (
     <>

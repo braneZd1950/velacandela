@@ -7,6 +7,7 @@ import Product from '@pages/Product'
 import Products from '@pages/Products'
 import Gallery from '@pages/Gallery'
 import LegalPage from '@pages/LegalPage'
+import NotFound from '@pages/NotFound'
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="kolacici" element={<LegalPage />} />
           <Route path="uvjeti" element={<LegalPage />} />
           <Route path="pravne-informacije" element={<LegalPage />} />
+          <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
     </BrowserRouter>

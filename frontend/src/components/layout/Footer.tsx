@@ -1,13 +1,12 @@
 import { Link } from 'react-router-dom'
 import { Mail, MapPin } from 'lucide-react'
-import { SITE } from '@/config/site'
-import { useCookieConsentStore } from '@/store/cookieConsentStore'
+import { isPlaceholder, SITE } from '@/config/site'
 import BrandLogo from '@components/ui/BrandLogo'
 import { useTranslation } from '@hooks/useTranslation'
 
 export default function Footer() {
   const { t } = useTranslation()
-  const openCookieSettings = useCookieConsentStore((s) => s.openSettings)
+  const showAddress = !isPlaceholder(SITE.address)
 
   const navLinks = [
     { to: '/', label: t.nav.home },
@@ -29,7 +28,7 @@ export default function Footer() {
       <section className="bg-forest py-12 text-offwhite">
         <div className="mx-auto grid max-w-screen-xl gap-10 px-6 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col items-center md:items-start">
-            <Link to="/" className="shrink-0" aria-label={SITE.name}>
+            <Link to="/" className="shrink-0" aria-label={t.a11y.homeLabel}>
               <BrandLogo size="footer" onDark />
             </Link>
             <p className="mt-4 max-w-xs text-center font-body text-sm leading-relaxed text-cream/80 md:text-left">
@@ -53,10 +52,14 @@ export default function Footer() {
           <div>
             <p className="mb-4 font-body text-xs uppercase tracking-widest text-cream">{t.footer.contactTitle}</p>
             <ul className="space-y-3 font-body text-sm text-cream/85">
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-gold" aria-hidden />
-                <span>{SITE.address}</span>
-              </li>
+              {showAddress ? (
+                <li className="flex items-start gap-2">
+                  <MapPin size={16} className="mt-0.5 shrink-0 text-gold" aria-hidden />
+                  <span>{SITE.address}</span>
+                </li>
+              ) : (
+                <li className="text-cream/70">{t.footer.addressPending}</li>
+              )}
               <li>
                 <a
                   href={`mailto:${SITE.email}`}
@@ -86,22 +89,13 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <button
-                  type="button"
-                  onClick={openCookieSettings}
-                  className="text-left text-cream/85 transition-colors hover:text-gold"
-                >
-                  {t.footer.cookieSettings}
-                </button>
-              </li>
             </ul>
           </div>
         </div>
       </section>
 
       <div className="bg-charcoal px-4 py-6 text-center font-body text-xs text-cream/70">
-        <p className="mb-3 max-w-3xl mx-auto leading-relaxed text-cream/55">{t.footer.gdprNotice}</p>
+        <p className="mx-auto mb-3 max-w-3xl leading-relaxed text-cream/55">{t.footer.gdprNotice}</p>
         <nav
           className="mb-4 flex flex-wrap items-center justify-center gap-x-4 gap-y-2"
           aria-label={t.footer.legalNavLabel}

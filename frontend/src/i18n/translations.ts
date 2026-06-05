@@ -11,6 +11,43 @@ export const translations = {
     },
     a11y: {
       language: 'Jezik',
+      homeLabel: 'Vela Candela — početna',
+      skipToContent: 'Preskoči na sadržaj',
+    },
+    meta: {
+      home: {
+        title: 'Početna',
+        description:
+          'Vela Candela — ručno izrađene svijeće od prirodnog voska. Pregledajte kolekcije, galeriju i naručite putem e-maila.',
+      },
+      products: {
+        title: 'Proizvodi',
+        description:
+          'Pregled ručno izrađenih svijeća i kreacija iz radionice Vela Candela. Cijene na upit — kontaktirajte nas za narudžbu.',
+      },
+      gallery: {
+        title: 'Galerija',
+        description: 'Fotografije ručno izrađenih svijeća i buketa iz radionice Vela Candela.',
+      },
+      about: {
+        title: 'O nama',
+        description:
+          'Upoznajte Vela Candela — malu radionicu ručno izrađenih svijeća inspiriranu prirodom i mediteranskim ritmom.',
+      },
+      contact: {
+        title: 'Kontakt',
+        description:
+          'Kontaktirajte Vela Candela za narudžbe, suradnje i upite. Odgovaramo putem e-maila u najkraćem roku.',
+      },
+      notFound: {
+        title: 'Stranica nije pronađena',
+        description: 'Tražena stranica ne postoji ili je uklonjena.',
+      },
+    },
+    notFound: {
+      title: 'Stranica nije pronađena',
+      description: 'Nažalost, stranica koju tražite ne postoji. Provjerite adresu ili se vratite na početnu.',
+      cta: 'Natrag na početnu',
     },
     home: {
       tagline: 'Ručno izliveno s ljubavlju',
@@ -40,10 +77,10 @@ export const translations = {
       eyebrow: 'Proizvod',
       orderEmail: 'Naručite putem e-maila',
       orderNote: 'Za narudžbu ili upit pošaljite nam e-mail — odgovaramo u najkraćem roku.',
-      burnTime: 'Vrijeme gorenja',
+      priceOnRequest: 'Cijena na upit',
+      defaultDescription: 'Ručno izrađena kreacija iz radionice Vela Candela.',
       weight: 'Težina',
       grams: 'g',
-      hours: 'h',
       notFound: 'Proizvod nije pronađen.',
       backToProducts: 'Natrag na proizvode',
     },
@@ -65,7 +102,8 @@ export const translations = {
       email: 'E-mail',
       message: 'Poruka',
       send: 'Pošalji upit',
-      success: 'Hvala! Poruka je zaprimljena (demo).',
+      formNote:
+        'Obrazac otvara vaš e-mail program s unesenim podacima. Poruku šaljete izravno na našu adresu.',
       emailCta: 'Pošaljite e-mail',
     },
     footer: {
@@ -79,7 +117,7 @@ export const translations = {
       privacy: 'Politika privatnosti',
       cookies: 'Politika kolačića',
       terms: 'Uvjeti korištenja',
-      cookieSettings: 'Postavke kolačića',
+      addressPending: 'Adresa će biti objavljena uskoro.',
       gdprNotice:
         'Poštujemo vašu privatnost u skladu s Općom uredbom o zaštiti podataka (GDPR) i važećim propisima Republike Hrvatske. Ne prodajemo vaše osobne podatke trećim stranama.',
       rights: 'Sva prava pridržana.',
@@ -88,34 +126,15 @@ export const translations = {
     cookieConsent: {
       title: 'Kolačići i vaša privatnost',
       intro:
-        'Koristimo kolačiće kako bismo osigurali ispravan rad stranice, zapamtili vaše jezične postavke i — uz vašu privolu — analizirali promet. Neophodne kolačiće koristimo na temelju legitimnog interesa; ostale samo uz vašu suglasnost, u skladu s GDPR-om i ePrivacy pravilima EU.',
-      learnMore: 'Više informacija:',
-      settings: 'Postavke',
-      reject: 'Odbij neobavezne',
-      accept: 'Prihvati sve',
-      settingsTitle: 'Upravljanje privolama',
-      settingsIntro:
-        'Odaberite kategorije kolačića koje želite dopustiti. Neophodni kolačići uvijek su aktivni jer su potrebni za osnovno funkcioniranje stranice.',
-      close: 'Zatvori',
-      save: 'Spremi odabir',
-      alwaysOn: 'Uvijek aktivno',
-      necessary: {
-        title: 'Neophodni kolačići',
-        desc: 'Potrebni za rad stranice, sigurnost i pamćenje jezičnih postavki (localStorage). Ne mogu se isključiti.',
-      },
-      analytics: {
-        title: 'Analitički kolačići',
-        desc: 'Pomažu nam razumjeti korištenje stranice anonimiziranim statistikama (npr. Google Analytics), samo uz vašu privolu.',
-      },
-      marketing: {
-        title: 'Marketinški kolačići',
-        desc: 'Koriste se za personalizirane oglase i mjerne tagove društvenih mreža, samo uz vašu privolu.',
-      },
+        'Koristimo isključivo neophodne kolačiće i lokalnu pohranu za rad stranice i pamćenje jezičnih postavki, u skladu s GDPR-om. Klikom na „Prihvati” potvrđujete korištenje tih tehničkih podataka.',
+      accept: 'Prihvati',
     },
     legal: {
       lastUpdated: 'Zadnje ažuriranje',
+      pendingValue: 'Podaci uskoro dostupni',
       imprint: {
         title: 'Pravne informacije',
+        summary: 'Podaci o subjektu, djelatnosti i nadležnom tijelu za zaštitu podataka.',
         blocks: [
           {
             heading: 'Podaci o subjektu',
@@ -142,6 +161,7 @@ export const translations = {
       },
       privacy: {
         title: 'Politika privatnosti',
+        summary: 'Kako obrađujemo osobne podatke u skladu s GDPR-om i hrvatskim propisima.',
         blocks: [
           {
             heading: '1. Uvod',
@@ -172,7 +192,7 @@ export const translations = {
             bullets: [
               'Odgovor na vaše upite i narudžbe — izvršenje mjera prije sklapanja ugovora ili legitimni interes (čl. 6. st. 1. t. b) i f) GDPR-a).',
               'Pružanje i sigurnost web stranice — legitimni interes (čl. 6. st. 1. t. f) GDPR-a).',
-              'Analitika i marketinški kolačići — isključivo uz vašu privolu (čl. 6. st. 1. t. a) GDPR-a), koju možete povući u bilo kojem trenutku.',
+              'Analitika ili marketinški alati — isključivo uz vašu privolu (čl. 6. st. 1. t. a) GDPR-a), ako ih u budućnosti uključimo.',
               'Ispunjavanje zakonskih obveza (npr. računovodstvo, porezni propisi) — pravna obveza (čl. 6. st. 1. t. c) GDPR-a).',
             ],
           },
@@ -215,6 +235,7 @@ export const translations = {
       },
       cookies: {
         title: 'Politika kolačića',
+        summary: 'Koje kolačiće koristimo i kako njima upravljati.',
         blocks: [
           {
             heading: '1. Što su kolačići',
@@ -223,28 +244,22 @@ export const translations = {
             ],
           },
           {
-            heading: '2. Kako koristimo kolačići',
-            paragraphs: ['Na stranici {{businessName}} koristimo sljedeće kategorije:'],
+            heading: '2. Kako koristimo kolačiće',
+            paragraphs: ['Trenutno na stranici {{businessName}} koristimo isključivo neophodne tehničke podatke:'],
             bullets: [
-              'Neophodni — osiguravaju rad stranice, sigurnost i pamćenje jezičnih postavki (npr. vela-locale, vela-cookie-consent). Pravna osnova: legitimni interes.',
-              'Analitički — pomažu nam razumjeti posjećenost (npr. Google Analytics), samo uz vašu privolu.',
-              'Marketinški — služe za remarketing i društvene mreže, samo uz vašu privolu.',
+              'Pamćenje jezičnih postavki (vela-locale u localStorage).',
+              'Zapis vaše suglasnosti za kolačiće (vela-cookie-consent u localStorage).',
+              'Tehnički logovi poslužitelja nužni za sigurnost i rad stranice.',
             ],
           },
           {
             heading: '3. Upravljanje privolama',
             paragraphs: [
-              'Pri prvom posjetu prikazujemo banner za upravljanje privolama. Svoj odabir možete promijeniti u bilo kojem trenutku putem linka „Postavke kolačića“ u podnožju stranice. Povlačenje privole ne utječe na zakonitost obrade prije povlačenja.',
+              'Pri prvom posjetu prikazujemo obavijest o kolačićima. Ako u budućnosti uvedemo analitiku ili marketinške alate, tražit ćemo vašu izričitu privolu prije njihova aktiviranja.',
             ],
           },
           {
-            heading: '4. Kolačići trećih strana',
-            paragraphs: [
-              'Ako aktivirate analitičke ili marketinške kolačiće, odgovarajući pružatelji usluga mogu postaviti vlastite kolačiće. Preporučujemo pregled njihovih politika privatnosti. Podatke dijelimo samo u opsegu nužnom za pružanje odabrane usluge i uz odgovarajuće ugovore o obradi.',
-            ],
-          },
-          {
-            heading: '5. Brisanje kolačića',
+            heading: '4. Brisanje kolačića',
             paragraphs: [
               'Kolačiće možete obrisati ili blokirati u postavkama preglednika. Imajte na umu da onemogućavanje neophodnih kolačića može utjecati na funkcionalnost stranice (npr. pamćenje jezika).',
             ],
@@ -253,6 +268,7 @@ export const translations = {
       },
       terms: {
         title: 'Uvjeti korištenja',
+        summary: 'Pravila korištenja web stranice, narudžbe i prava potrošača.',
         blocks: [
           {
             heading: '1. Opće odredbe',
@@ -269,7 +285,7 @@ export const translations = {
           {
             heading: '3. Cijene i dostupnost',
             paragraphs: [
-              'Prikazane cijene su informativne i mogu se promijeniti. Konačna cijena, dostupnost i uvjeti dostave potvrđuju se u komunikaciji s kupcem prije plaćanja. Sve cijene za potrošače u RH iskazuju se u eurima, uključujući PDV ako je primjenjivo.',
+              'Ako je cijena označena kao „na upit”, konačna cijena, dostupnost i uvjeti dostave potvrđuju se u komunikaciji s kupcem prije plaćanja. Sve cijene za potrošače u RH iskazuju se u eurima, uključujući PDV ako je primjenjivo.',
             ],
           },
           {
@@ -305,24 +321,6 @@ export const translations = {
         ],
       },
     },
-    catalog: {
-      lemonBurst: {
-        name: 'Limun & verbena',
-        description: 'Svjež limun i verbena na bazi 100% sojinog voska. Lagana, osvježavajuća nota za dnevne prostore.',
-      },
-      forestMoss: {
-        name: 'Šumska mahovina',
-        description: 'Zelena mahovina i cedar za miran, prirodan ambijent. Idealno za večernje opuštanje.',
-      },
-      vanillaSky: {
-        name: 'Vanilija & karamela',
-        description: 'Topli vanilijski miris s nijansom karamela. Ugodna, domaća atmosfera.',
-      },
-      mediumRose: {
-        name: 'Srednja ruža',
-        description: 'Blaga ružina nota s cvjetnim akcentima. Romantičan, nježan miris za posebne trenutke.',
-      },
-    },
   },
   en: {
     nav: {
@@ -334,6 +332,43 @@ export const translations = {
     },
     a11y: {
       language: 'Language',
+      homeLabel: 'Vela Candela — home',
+      skipToContent: 'Skip to content',
+    },
+    meta: {
+      home: {
+        title: 'Home',
+        description:
+          'Vela Candela — handcrafted natural wax candles. Browse collections, gallery and order by email.',
+      },
+      products: {
+        title: 'Products',
+        description:
+          'Handcrafted candles and creations from the Vela Candela workshop. Price on request — contact us to order.',
+      },
+      gallery: {
+        title: 'Gallery',
+        description: 'Photos of handcrafted candles and bouquets from the Vela Candela workshop.',
+      },
+      about: {
+        title: 'About',
+        description:
+          'Meet Vela Candela — a small workshop of handcrafted candles inspired by nature and the Mediterranean rhythm.',
+      },
+      contact: {
+        title: 'Contact',
+        description:
+          'Contact Vela Candela for orders, collaborations and inquiries. We reply by email as soon as possible.',
+      },
+      notFound: {
+        title: 'Page not found',
+        description: 'The requested page does not exist or has been removed.',
+      },
+    },
+    notFound: {
+      title: 'Page not found',
+      description: 'Sorry, the page you are looking for does not exist. Check the address or return to the home page.',
+      cta: 'Back to home',
     },
     home: {
       tagline: 'Hand poured with love',
@@ -363,10 +398,10 @@ export const translations = {
       eyebrow: 'Product',
       orderEmail: 'Order via email',
       orderNote: 'For orders or inquiries, send us an email — we will reply as soon as possible.',
-      burnTime: 'Burn time',
+      priceOnRequest: 'Price on request',
+      defaultDescription: 'A handcrafted creation from the Vela Candela workshop.',
       weight: 'Weight',
       grams: 'g',
-      hours: 'h',
       notFound: 'Product not found.',
       backToProducts: 'Back to products',
     },
@@ -388,7 +423,8 @@ export const translations = {
       email: 'Email',
       message: 'Message',
       send: 'Send inquiry',
-      success: 'Thank you! Your message was received (demo).',
+      formNote:
+        'The form opens your email app with the entered details. You send the message directly to our address.',
       emailCta: 'Send an email',
     },
     footer: {
@@ -402,7 +438,7 @@ export const translations = {
       privacy: 'Privacy policy',
       cookies: 'Cookie policy',
       terms: 'Terms of use',
-      cookieSettings: 'Cookie settings',
+      addressPending: 'Address will be published soon.',
       gdprNotice:
         'We respect your privacy in accordance with the General Data Protection Regulation (GDPR) and applicable laws of the Republic of Croatia. We do not sell your personal data to third parties.',
       rights: 'All rights reserved.',
@@ -411,34 +447,15 @@ export const translations = {
     cookieConsent: {
       title: 'Cookies and your privacy',
       intro:
-        'We use cookies to ensure the site works correctly, remember your language settings and — with your consent — analyse traffic. Essential cookies are used on the basis of legitimate interest; all others only with your consent, in line with the GDPR and EU ePrivacy rules.',
-      learnMore: 'Learn more:',
-      settings: 'Settings',
-      reject: 'Reject optional',
-      accept: 'Accept all',
-      settingsTitle: 'Consent management',
-      settingsIntro:
-        'Choose which cookie categories you wish to allow. Essential cookies are always active because they are required for basic site functionality.',
-      close: 'Close',
-      save: 'Save selection',
-      alwaysOn: 'Always active',
-      necessary: {
-        title: 'Essential cookies',
-        desc: 'Required for site operation, security and remembering language settings (localStorage). They cannot be disabled.',
-      },
-      analytics: {
-        title: 'Analytics cookies',
-        desc: 'Help us understand site usage through anonymised statistics (e.g. Google Analytics), only with your consent.',
-      },
-      marketing: {
-        title: 'Marketing cookies',
-        desc: 'Used for personalised ads and social media tracking tags, only with your consent.',
-      },
+        'We use only essential cookies and local storage for site operation and language settings, in line with the GDPR. By clicking “Accept” you acknowledge use of these technical data.',
+      accept: 'Accept',
     },
     legal: {
       lastUpdated: 'Last updated',
+      pendingValue: 'Details available soon',
       imprint: {
         title: 'Legal notice',
+        summary: 'Business details, activity and the competent data protection authority.',
         blocks: [
           {
             heading: 'Business details',
@@ -465,6 +482,7 @@ export const translations = {
       },
       privacy: {
         title: 'Privacy policy',
+        summary: 'How we process personal data under the GDPR and Croatian law.',
         blocks: [
           {
             heading: '1. Introduction',
@@ -495,7 +513,7 @@ export const translations = {
             bullets: [
               'Responding to inquiries and orders — pre-contractual measures or legitimate interest (Art. 6(1)(b) and (f) GDPR).',
               'Providing and securing the website — legitimate interest (Art. 6(1)(f) GDPR).',
-              'Analytics and marketing cookies — only with your consent (Art. 6(1)(a) GDPR), which you may withdraw at any time.',
+              'Analytics or marketing tools — only with your consent (Art. 6(1)(a) GDPR), if we enable them in the future.',
               'Compliance with legal obligations (e.g. accounting, tax law) — legal obligation (Art. 6(1)(c) GDPR).',
             ],
           },
@@ -538,6 +556,7 @@ export const translations = {
       },
       cookies: {
         title: 'Cookie policy',
+        summary: 'Which cookies we use and how to manage them.',
         blocks: [
           {
             heading: '1. What are cookies',
@@ -547,27 +566,21 @@ export const translations = {
           },
           {
             heading: '2. How we use cookies',
-            paragraphs: ['On the {{businessName}} website we use the following categories:'],
+            paragraphs: ['Currently on {{businessName}} we use only essential technical data:'],
             bullets: [
-              'Essential — ensure site operation, security and language settings (e.g. vela-locale, vela-cookie-consent). Legal basis: legitimate interest.',
-              'Analytics — help us understand traffic (e.g. Google Analytics), only with your consent.',
-              'Marketing — used for remarketing and social networks, only with your consent.',
+              'Remembering language settings (vela-locale in localStorage).',
+              'Recording your cookie consent (vela-cookie-consent in localStorage).',
+              'Server technical logs required for security and site operation.',
             ],
           },
           {
             heading: '3. Consent management',
             paragraphs: [
-              'On your first visit we display a consent banner. You can change your choice at any time via “Cookie settings” in the footer. Withdrawal of consent does not affect the lawfulness of processing before withdrawal.',
+              'On your first visit we show a cookie notice. If we introduce analytics or marketing tools in the future, we will ask for your explicit consent before activating them.',
             ],
           },
           {
-            heading: '4. Third-party cookies',
-            paragraphs: [
-              'If you enable analytics or marketing cookies, the relevant service providers may set their own cookies. We recommend reviewing their privacy policies. Data is shared only to the extent necessary for the selected service and under appropriate processing agreements.',
-            ],
-          },
-          {
-            heading: '5. Deleting cookies',
+            heading: '4. Deleting cookies',
             paragraphs: [
               'You can delete or block cookies in your browser settings. Note that disabling essential cookies may affect site functionality (e.g. language memory).',
             ],
@@ -576,6 +589,7 @@ export const translations = {
       },
       terms: {
         title: 'Terms of use',
+        summary: 'Rules for using the website, placing orders and consumer rights.',
         blocks: [
           {
             heading: '1. General',
@@ -592,7 +606,7 @@ export const translations = {
           {
             heading: '3. Prices and availability',
             paragraphs: [
-              'Displayed prices are indicative and may change. Final price, availability and delivery terms are confirmed in communication with the customer before payment. All consumer prices in Croatia are shown in euros, including VAT where applicable.',
+              'Where a price is marked as “on request”, final price, availability and delivery terms are confirmed in communication with the customer before payment. All consumer prices in Croatia are shown in euros, including VAT where applicable.',
             ],
           },
           {
@@ -626,24 +640,6 @@ export const translations = {
             ],
           },
         ],
-      },
-    },
-    catalog: {
-      lemonBurst: {
-        name: 'Lemon & verbena',
-        description: 'Fresh lemon and verbena on a 100% soy wax base. A light, uplifting note for daytime spaces.',
-      },
-      forestMoss: {
-        name: 'Forest moss',
-        description: 'Green moss and cedar for a calm, natural ambience. Ideal for evening relaxation.',
-      },
-      vanillaSky: {
-        name: 'Vanilla & caramel',
-        description: 'Warm vanilla with a hint of caramel. A cozy, homely atmosphere.',
-      },
-      mediumRose: {
-        name: 'Medium rose',
-        description: 'A soft rose note with floral accents. A romantic, gentle fragrance for special moments.',
       },
     },
   },

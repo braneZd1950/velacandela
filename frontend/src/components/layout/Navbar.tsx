@@ -32,7 +32,7 @@ export default function Navbar() {
         <Link
           to="/"
           className="absolute left-1/2 -translate-x-1/2 md:static md:translate-x-0"
-          aria-label="Vela Candela — početna"
+          aria-label={t.a11y.homeLabel}
         >
           <BrandLogo size="nav" onDark />
         </Link>

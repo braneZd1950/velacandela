@@ -1,5 +1,4 @@
 import logo from './Vela Candela logo.png'
-import logoMark from './Vela Candela Stamp.png'
 
 import buketMale120g from './Buket MAle 120g.jpeg'
 import buket300g from './Buket 300g.jpeg'
@@ -58,8 +57,5 @@ export const galleryImages: GalleryImage[] = [
 
 export const images = {
   logo,
-  /** Kružni pečat — favicon */
-  logoMark,
   brand: colorPaleteBuket,
-  candles: [mediumSunshine, kaktusMedium170g, margarida, mediumRose] as const,
 }

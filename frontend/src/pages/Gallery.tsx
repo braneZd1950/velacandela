@@ -1,9 +1,16 @@
 import { galleryImages } from '@/assets/images'
 import GalleryGrid from '@components/gallery/GalleryGrid'
+import { usePageMeta } from '@hooks/usePageMeta'
 import { useTranslation } from '@hooks/useTranslation'
 
 export default function Gallery() {
   const { t } = useTranslation()
+
+  usePageMeta({
+    title: t.meta.gallery.title,
+    description: t.meta.gallery.description,
+    path: '/gallery',
+  })
 
   return (
     <div className="mx-auto max-w-screen-xl px-6 py-16">

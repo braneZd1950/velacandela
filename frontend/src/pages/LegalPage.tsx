@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom'
-import { SITE } from '@/config/site'
+import { SITE, resolveSiteValue } from '@/config/site'
+import { usePageMeta } from '@hooks/usePageMeta'
 import { useTranslation } from '@hooks/useTranslation'
 
 const PATH_TO_DOC: Record<string, 'privacy' | 'cookies' | 'terms' | 'imprint'> = {
@@ -12,17 +13,6 @@ const PATH_TO_DOC: Record<string, 'privacy' | 'cookies' | 'terms' | 'imprint'> =
 function docFromPath(pathname: string): 'privacy' | 'cookies' | 'terms' | 'imprint' | null {
   const key = pathname.replace(/\/$/, '') || '/'
   return PATH_TO_DOC[key] ?? null
-}
-
-function interpolate(text: string): string {
-  return text
-    .replaceAll('{{businessName}}', SITE.legalName)
-    .replaceAll('{{legalForm}}', SITE.legalForm)
-    .replaceAll('{{address}}', SITE.address)
-    .replaceAll('{{oib}}', SITE.oib)
-    .replaceAll('{{email}}', SITE.email)
-    .replaceAll('{{phone}}', SITE.phone || '—')
-    .replaceAll('{{lastUpdated}}', SITE.legalLastUpdated)
 }
 
 export default function LegalPage() {
@@ -42,6 +32,24 @@ export default function LegalPage() {
   }
 
   const section = t.legal[doc]
+
+  usePageMeta({
+    title: section.title,
+    description: section.summary,
+    path: pathname,
+  })
+
+  const interpolate = (text: string) => {
+    const pending = t.legal.pendingValue
+    return text
+      .replaceAll('{{businessName}}', SITE.legalName)
+      .replaceAll('{{legalForm}}', SITE.legalForm)
+      .replaceAll('{{address}}', resolveSiteValue(SITE.address, pending))
+      .replaceAll('{{oib}}', resolveSiteValue(SITE.oib, pending))
+      .replaceAll('{{email}}', SITE.email)
+      .replaceAll('{{phone}}', SITE.phone || '—')
+      .replaceAll('{{lastUpdated}}', SITE.legalLastUpdated)
+  }
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
