@@ -1,5 +1,20 @@
 export const CONTACT_EMAIL = 'info@velacandela.com'
 
+/** Pravni podaci — ažurirajte prije produkcijske objave. */
+export const SITE = {
+  name: 'Vela Candela',
+  legalName: 'Vela Candela',
+  /** npr. obrt, d.o.o. */
+  legalForm: 'obrt za proizvodnju i prodaju',
+  address: '[Ulica i broj], [Poštanski broj] [Mjesto], Republika Hrvatska',
+  oib: '[OIB]',
+  email: CONTACT_EMAIL,
+  phone: '',
+  developerEmail: 'banbranimir@outlook.com',
+  /** Datum zadnjeg ažuriranja pravnih dokumenata (ISO). */
+  legalLastUpdated: '2026-06-05',
+} as const
+
 export function orderMailto(productName: string, locale: 'hr' | 'en') {
   const subject =
     locale === 'hr' ? `Upit za narudžbu: ${productName}` : `Order inquiry: ${productName}`

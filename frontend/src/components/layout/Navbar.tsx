@@ -11,6 +11,7 @@ export default function Navbar() {
   const nav = [
     { label: t.nav.home, to: '/' },
     { label: t.nav.products, to: '/products' },
+    { label: t.nav.gallery, to: '/gallery' },
     { label: t.nav.about, to: '/about' },
     { label: t.nav.contact, to: '/contact' },
   ]

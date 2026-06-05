@@ -11,7 +11,7 @@ export type Product = {
   scents: string[]
   weight: number
   burnTime: number
-  copyKey: 'lemonBurst' | 'forestMoss' | 'vanillaSky'
+  copyKey: 'lemonBurst' | 'forestMoss' | 'vanillaSky' | 'mediumRose'
 }
 
 export const PRODUCTS: Product[] = [
@@ -31,7 +31,7 @@ export const PRODUCTS: Product[] = [
     slug: 'forest-moss',
     price: 28.5,
     stock: 30,
-    image: images.candles[0],
+    image: images.candles[1],
     scents: ['moss', 'cedar'],
     weight: 220,
     burnTime: 40,
@@ -42,11 +42,22 @@ export const PRODUCTS: Product[] = [
     slug: 'vanilla-sky',
     price: 22,
     stock: 40,
-    image: images.candles[0],
+    image: images.candles[2],
     scents: ['vanilla', 'caramel'],
     weight: 200,
     burnTime: 38,
     copyKey: 'vanillaSky',
+  },
+  {
+    id: 'medium-rose',
+    slug: 'medium-rose',
+    price: 26.5,
+    stock: 35,
+    image: images.candles[3],
+    scents: ['rose', 'peony'],
+    weight: 230,
+    burnTime: 42,
+    copyKey: 'mediumRose',
   },
 ]
 
